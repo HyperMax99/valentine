@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Valentine's Day!</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff6bcb, #ff4b1f, #ff0844, #a4508b, #5f0a87);
+            background-size: 400% 400%;
+            animation: romanticGradient 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+        }
+
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 2rem auto;
+            animation: pulse 1.5s ease infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            background: #fff;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .heart::before {
+            left: 50px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .message {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 1s ease forwards;
+        }
+
+        .carousel-container {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 2rem auto;
+        }
+
+        .carousel {
+            display: flex;
+            width: 500%;
+            height: 300px;
+            animation: slide 15s infinite;
+        }
+
+        .carousel-image {
+            width: 20%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .button {
+            background: white;
+            color: #ff1493;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 1rem;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+
+        .falling-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes romanticGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes slide {
+            0%, 20% { transform: translateX(0); }
+            25%, 45% { transform: translateX(-20%); }
+            50%, 70% { transform: translateX(-40%); }
+            75%, 95% { transform: translateX(-60%); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="falling-hearts"></div>
+    <div class="container">
+        <div class="heart"></div>
+        <h1>Happy Valentine's Day, Tanu
+            <p>urf Meri Galu! 💖</p>
+        </h1>
+        <div class="message">To the most special person in my life...</div>
+        
+        <div class="carousel-container">
+            <div class="carousel">
+                <img src="img1.jpeg" alt="Memory 1" class="carousel-image">
+                <img src="img2.jpeg" alt="Memory 2" class="carousel-image">
+                <img src="img3.jpeg" alt="Memory 3" class="carousel-image">
+                <img src="img4.jpeg" alt="Memory 4" class="carousel-image">
+                <img src="img5.jpeg" alt="Memory 5" class="carousel-image">
+                <img src="img6.jpeg" alt="Memory 6" class="carousel-image">
+                <img src="img7.jpeg" alt="Memory 7" class="carousel-image">
+                <img src="img8.jpeg" alt="Memory 8" class="carousel-image">
+                <img src="img9.jpeg" alt="Memory 9" class="carousel-image">
+                <img src="img10.jpeg" alt="Memory 10" class="carousel-image">
+
+            </div>
+        </div>
+
+        <div class="message" style="animation-delay: 0.5s">Every moment with you is a gift.</div>
+        <div class="message" style="animation-delay: 1s">You make my heart smile!</div>
+        <button class="button" onclick="showLove()">Send Love ❤️ (keep on clicking)</button>
+        <button class="button" onclick="nextPage('memories.html')">Next: Our Memories ➡️</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
